@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/workspace/CppND-Capstone-Pong-Game/src/controller.cpp" "/home/workspace/CppND-Capstone-Pong-Game/build/CMakeFiles/PongGame.dir/src/controller.cpp.o"
-  "/home/workspace/CppND-Capstone-Pong-Game/src/game.cpp" "/home/workspace/CppND-Capstone-Pong-Game/build/CMakeFiles/PongGame.dir/src/game.cpp.o"
+  "/home/workspace/CppND-Capstone-Pong-Game/src/Ball.cpp" "/home/workspace/CppND-Capstone-Pong-Game/build/CMakeFiles/PongGame.dir/src/Ball.cpp.o"
+  "/home/workspace/CppND-Capstone-Pong-Game/src/Paddle.cpp" "/home/workspace/CppND-Capstone-Pong-Game/build/CMakeFiles/PongGame.dir/src/Paddle.cpp.o"
+  "/home/workspace/CppND-Capstone-Pong-Game/src/PlayerScore.cpp" "/home/workspace/CppND-Capstone-Pong-Game/build/CMakeFiles/PongGame.dir/src/PlayerScore.cpp.o"
+  "/home/workspace/CppND-Capstone-Pong-Game/src/Vec2.cpp" "/home/workspace/CppND-Capstone-Pong-Game/build/CMakeFiles/PongGame.dir/src/Vec2.cpp.o"
   "/home/workspace/CppND-Capstone-Pong-Game/src/main.cpp" "/home/workspace/CppND-Capstone-Pong-Game/build/CMakeFiles/PongGame.dir/src/main.cpp.o"
-  "/home/workspace/CppND-Capstone-Pong-Game/src/renderer.cpp" "/home/workspace/CppND-Capstone-Pong-Game/build/CMakeFiles/PongGame.dir/src/renderer.cpp.o"
-  "/home/workspace/CppND-Capstone-Pong-Game/src/snake.cpp" "/home/workspace/CppND-Capstone-Pong-Game/build/CMakeFiles/PongGame.dir/src/snake.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

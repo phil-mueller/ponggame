@@ -123,59 +123,113 @@ PongGame/fast:
 	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/build
 .PHONY : PongGame/fast
 
-src/controller.o: src/controller.cpp.o
+src/Ball.o: src/Ball.cpp.o
 
-.PHONY : src/controller.o
-
-# target to build an object file
-src/controller.cpp.o:
-	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/controller.cpp.o
-.PHONY : src/controller.cpp.o
-
-src/controller.i: src/controller.cpp.i
-
-.PHONY : src/controller.i
-
-# target to preprocess a source file
-src/controller.cpp.i:
-	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/controller.cpp.i
-.PHONY : src/controller.cpp.i
-
-src/controller.s: src/controller.cpp.s
-
-.PHONY : src/controller.s
-
-# target to generate assembly for a file
-src/controller.cpp.s:
-	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/controller.cpp.s
-.PHONY : src/controller.cpp.s
-
-src/game.o: src/game.cpp.o
-
-.PHONY : src/game.o
+.PHONY : src/Ball.o
 
 # target to build an object file
-src/game.cpp.o:
-	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/game.cpp.o
-.PHONY : src/game.cpp.o
+src/Ball.cpp.o:
+	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/Ball.cpp.o
+.PHONY : src/Ball.cpp.o
 
-src/game.i: src/game.cpp.i
+src/Ball.i: src/Ball.cpp.i
 
-.PHONY : src/game.i
+.PHONY : src/Ball.i
 
 # target to preprocess a source file
-src/game.cpp.i:
-	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/game.cpp.i
-.PHONY : src/game.cpp.i
+src/Ball.cpp.i:
+	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/Ball.cpp.i
+.PHONY : src/Ball.cpp.i
 
-src/game.s: src/game.cpp.s
+src/Ball.s: src/Ball.cpp.s
 
-.PHONY : src/game.s
+.PHONY : src/Ball.s
 
 # target to generate assembly for a file
-src/game.cpp.s:
-	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/game.cpp.s
-.PHONY : src/game.cpp.s
+src/Ball.cpp.s:
+	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/Ball.cpp.s
+.PHONY : src/Ball.cpp.s
+
+src/Paddle.o: src/Paddle.cpp.o
+
+.PHONY : src/Paddle.o
+
+# target to build an object file
+src/Paddle.cpp.o:
+	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/Paddle.cpp.o
+.PHONY : src/Paddle.cpp.o
+
+src/Paddle.i: src/Paddle.cpp.i
+
+.PHONY : src/Paddle.i
+
+# target to preprocess a source file
+src/Paddle.cpp.i:
+	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/Paddle.cpp.i
+.PHONY : src/Paddle.cpp.i
+
+src/Paddle.s: src/Paddle.cpp.s
+
+.PHONY : src/Paddle.s
+
+# target to generate assembly for a file
+src/Paddle.cpp.s:
+	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/Paddle.cpp.s
+.PHONY : src/Paddle.cpp.s
+
+src/PlayerScore.o: src/PlayerScore.cpp.o
+
+.PHONY : src/PlayerScore.o
+
+# target to build an object file
+src/PlayerScore.cpp.o:
+	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/PlayerScore.cpp.o
+.PHONY : src/PlayerScore.cpp.o
+
+src/PlayerScore.i: src/PlayerScore.cpp.i
+
+.PHONY : src/PlayerScore.i
+
+# target to preprocess a source file
+src/PlayerScore.cpp.i:
+	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/PlayerScore.cpp.i
+.PHONY : src/PlayerScore.cpp.i
+
+src/PlayerScore.s: src/PlayerScore.cpp.s
+
+.PHONY : src/PlayerScore.s
+
+# target to generate assembly for a file
+src/PlayerScore.cpp.s:
+	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/PlayerScore.cpp.s
+.PHONY : src/PlayerScore.cpp.s
+
+src/Vec2.o: src/Vec2.cpp.o
+
+.PHONY : src/Vec2.o
+
+# target to build an object file
+src/Vec2.cpp.o:
+	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/Vec2.cpp.o
+.PHONY : src/Vec2.cpp.o
+
+src/Vec2.i: src/Vec2.cpp.i
+
+.PHONY : src/Vec2.i
+
+# target to preprocess a source file
+src/Vec2.cpp.i:
+	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/Vec2.cpp.i
+.PHONY : src/Vec2.cpp.i
+
+src/Vec2.s: src/Vec2.cpp.s
+
+.PHONY : src/Vec2.s
+
+# target to generate assembly for a file
+src/Vec2.cpp.s:
+	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/Vec2.cpp.s
+.PHONY : src/Vec2.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -204,60 +258,6 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/renderer.o: src/renderer.cpp.o
-
-.PHONY : src/renderer.o
-
-# target to build an object file
-src/renderer.cpp.o:
-	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/renderer.cpp.o
-.PHONY : src/renderer.cpp.o
-
-src/renderer.i: src/renderer.cpp.i
-
-.PHONY : src/renderer.i
-
-# target to preprocess a source file
-src/renderer.cpp.i:
-	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/renderer.cpp.i
-.PHONY : src/renderer.cpp.i
-
-src/renderer.s: src/renderer.cpp.s
-
-.PHONY : src/renderer.s
-
-# target to generate assembly for a file
-src/renderer.cpp.s:
-	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/renderer.cpp.s
-.PHONY : src/renderer.cpp.s
-
-src/snake.o: src/snake.cpp.o
-
-.PHONY : src/snake.o
-
-# target to build an object file
-src/snake.cpp.o:
-	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/snake.cpp.o
-.PHONY : src/snake.cpp.o
-
-src/snake.i: src/snake.cpp.i
-
-.PHONY : src/snake.i
-
-# target to preprocess a source file
-src/snake.cpp.i:
-	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/snake.cpp.i
-.PHONY : src/snake.cpp.i
-
-src/snake.s: src/snake.cpp.s
-
-.PHONY : src/snake.s
-
-# target to generate assembly for a file
-src/snake.cpp.s:
-	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/snake.cpp.s
-.PHONY : src/snake.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -267,21 +267,21 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... PongGame"
 	@echo "... edit_cache"
-	@echo "... src/controller.o"
-	@echo "... src/controller.i"
-	@echo "... src/controller.s"
-	@echo "... src/game.o"
-	@echo "... src/game.i"
-	@echo "... src/game.s"
+	@echo "... src/Ball.o"
+	@echo "... src/Ball.i"
+	@echo "... src/Ball.s"
+	@echo "... src/Paddle.o"
+	@echo "... src/Paddle.i"
+	@echo "... src/Paddle.s"
+	@echo "... src/PlayerScore.o"
+	@echo "... src/PlayerScore.i"
+	@echo "... src/PlayerScore.s"
+	@echo "... src/Vec2.o"
+	@echo "... src/Vec2.i"
+	@echo "... src/Vec2.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/renderer.o"
-	@echo "... src/renderer.i"
-	@echo "... src/renderer.s"
-	@echo "... src/snake.o"
-	@echo "... src/snake.i"
-	@echo "... src/snake.s"
 .PHONY : help
 
 
