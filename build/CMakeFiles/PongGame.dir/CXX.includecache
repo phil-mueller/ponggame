@@ -11,6 +11,8 @@ Vec2.h
 -
 SDL2/SDL.h
 -
+collission.h
+-
 
 ../src/Paddle.h
 Vec2.h
@@ -27,13 +29,19 @@ Vec2.h
 -
 SDL2/SDL_ttf.h
 -
+string
+-
 
 ../src/Vec2.h
+
+../src/collission.h
 
 /home/workspace/CppND-Capstone-Pong-Game/src/main.cpp
 iostream
 -
 SDL2/SDL.h
+-
+SDL2/SDL_audio.h
 -
 Vec2.h
 -
@@ -47,7 +55,7 @@ string
 -
 SDL2/SDL_ttf.h
 -
-stdexcept
+SDL2/SDL_mixer.h
 -
 chrono
 -
