@@ -11,10 +11,10 @@
 #include <chrono>
 
 // Declare some variables
-const int windowWidth = 1280/2;
-const int windowHeight = 720/2;
+const int windowWidth = 1280;
+const int windowHeight = 720;
 const float paddleSpeed = 1.0;
-const float ballSpeed = 1.0;
+const float ballSpeed = 0.75;
 
 // Enum to indicate movement for paddles
 enum Buttons
@@ -82,9 +82,10 @@ Contact CheckPaddleCollision(Ball const& ball, Paddle const& paddle)
   return contact;  
 }
 
+// Function to detect collision of ball with walls
 Contact CheckWallCollision(Ball const& ball)
 {
-  	float ballLeft = ball.position.x;
+  float ballLeft = ball.position.x;
 	float ballRight = ball.position.x + ball.ballWidth;
 	float ballTop = ball.position.y;
 	float ballBottom = ball.position.y + ball.ballHeight;
@@ -104,10 +105,10 @@ Contact CheckWallCollision(Ball const& ball)
 		contact.type = CollisionType::Top;
 		contact.penetration = -ballTop;
 	}
-	else if (ballBottom > windowWidth)
+	else if (ballBottom > windowHeight)
 	{
 		contact.type = CollisionType::Bottom;
-		contact.penetration = windowWidth - ballBottom;
+		contact.penetration = windowHeight - ballBottom;
 	}
 	return contact;
 }
@@ -121,18 +122,20 @@ int main() {
   TTF_Font* scoreFont = TTF_OpenFont("DejaVuSansMono.ttf",40);
   Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
 
+  // Open audio files for game
   Mix_Chunk* wallHitSound = Mix_LoadWAV("WallHit.wav");
   Mix_Chunk* paddleHitSound = Mix_LoadWAV("PaddleHit.wav");
 
+  // Initialize player scores
   PlayerScore playerOneScore(Vec2(windowWidth/4,20),renderer,scoreFont);
   PlayerScore playerTwoScore(Vec2(3*windowWidth/4,20),renderer,scoreFont);
   int OneScore = 0;
   int TwoScore = 0;
 
-  // Add Ball object
+  // Add ball object
   Ball ball(windowWidth,windowHeight,Vec2(ballSpeed,0.0));
 
-  // Add Paddle objects
+  // Add paddle objects
   Paddle paddleOne(windowWidth,windowHeight,Vec2(0.0f,0.0f),"left");
   Paddle paddleTwo(windowWidth,windowHeight,Vec2(0.0f,0.0f),"right");
 
@@ -140,7 +143,7 @@ int main() {
   bool running = true;
   bool buttons[4] = {};
 
-  // Initialize dt for game loop timing
+  // Initialize time increment for game loop timing
   float dt = 0.0f;
 
   // Starting main game loop
@@ -233,7 +236,7 @@ int main() {
     // Update ball
     ball.Update(dt);  
 
-    // Check collision
+    // Check for collision
     if (Contact contact = CheckPaddleCollision(ball, paddleOne);
         contact.type != CollisionType::None)
     {
@@ -255,7 +258,7 @@ int main() {
         ++TwoScore;
         playerTwoScore.SetScore(renderer,scoreFont,TwoScore);
       }
-      else if(contact.type == CollisionType::Right)
+      else if (contact.type == CollisionType::Right)
       {
         ++OneScore;
         playerOneScore.SetScore(renderer,scoreFont,OneScore);
@@ -274,7 +277,7 @@ int main() {
     SDL_SetRenderDrawColor(renderer,0xFF,0xFF,0xFF,0xFF);
     for(int y=0; y<windowHeight;++y)
     {
-      if(y%20)
+      if (y%20>3)
       {
         SDL_RenderDrawPoint(renderer,windowWidth/2,y);
       }
