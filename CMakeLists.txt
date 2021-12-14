@@ -12,8 +12,10 @@ project(SDL2Test)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
 find_package(SDL2 REQUIRED)
-include_directories(${SDL2_INCLUDE_DIRS} src)
+find_package(SDL2TTF REQUIRED)
+find_package(SDL2_mixer REQUIRED)
+include_directories(${SDL2_INCLUDE_DIRS} ${SDL2TTF_INCLUDE_DIRS} ${SDL2_Mixer_INCLUDE_DIRS} src)
 
-add_executable(PongGame src/main.cpp src/game.cpp src/controller.cpp src/renderer.cpp src/snake.cpp)
+add_executable(PongGame src/main.cpp src/Vec2.cpp src/Ball.cpp src/Paddle.cpp src/PlayerScore.cpp src/collission.h)
 string(STRIP ${SDL2_LIBRARIES} SDL2_LIBRARIES)
-target_link_libraries(PongGame ${SDL2_LIBRARIES})
+target_link_libraries(PongGame ${SDL2_LIBRARIES} ${SDL2TTF_LIBRARY} ${SDL2_MIXER_LIBRARY})
