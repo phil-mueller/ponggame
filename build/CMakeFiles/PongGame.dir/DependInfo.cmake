@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/workspace/CppND-Capstone-Pong-Game/src/PlayerScore.cpp" "/home/workspace/CppND-Capstone-Pong-Game/build/CMakeFiles/PongGame.dir/src/PlayerScore.cpp.o"
   "/home/workspace/CppND-Capstone-Pong-Game/src/Vec2.cpp" "/home/workspace/CppND-Capstone-Pong-Game/build/CMakeFiles/PongGame.dir/src/Vec2.cpp.o"
   "/home/workspace/CppND-Capstone-Pong-Game/src/main.cpp" "/home/workspace/CppND-Capstone-Pong-Game/build/CMakeFiles/PongGame.dir/src/main.cpp.o"
+  "/home/workspace/CppND-Capstone-Pong-Game/src/playerName.cpp" "/home/workspace/CppND-Capstone-Pong-Game/build/CMakeFiles/PongGame.dir/src/playerName.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

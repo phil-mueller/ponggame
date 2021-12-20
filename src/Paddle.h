@@ -16,7 +16,7 @@ class Paddle
         Vec2 velocity;
         SDL_Rect rect{};
         const int paddleWidth = 10;
-        const int paddleHeight = 100;
+        const int paddleHeight = 80;
     private:
         int windowWidthInternal;
         int windowHeightInternal;

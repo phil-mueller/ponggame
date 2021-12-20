@@ -8,7 +8,7 @@ Paddle::Paddle(int windowWidth, int windowHeight, Vec2 startVelocity, std::strin
 
     if(side == "left")
     {
-        position = Vec2(50.0f,(windowHeight/2.0f)-(paddleHeight/2.0f));
+        position = Vec2(20.0f,(windowHeight/2.0f)-(paddleHeight/2.0f));
         rect.x = static_cast<int>(position.x);
         rect.y = static_cast<int>(position.y);
         rect.w = paddleWidth;
@@ -16,7 +16,7 @@ Paddle::Paddle(int windowWidth, int windowHeight, Vec2 startVelocity, std::strin
     }
     else if(side == "right")
     {
-        position = Vec2(windowWidth-50.0f,(windowHeight/2.0f)-(paddleHeight/2.0f));
+        position = Vec2(windowWidth-20.0f,(windowHeight/2.0f)-(paddleHeight/2.0f));
         rect.x = static_cast<int>(position.x);
         rect.y = static_cast<int>(position.y);
         rect.w = paddleWidth;

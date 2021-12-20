@@ -258,6 +258,33 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/playerName.o: src/playerName.cpp.o
+
+.PHONY : src/playerName.o
+
+# target to build an object file
+src/playerName.cpp.o:
+	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/playerName.cpp.o
+.PHONY : src/playerName.cpp.o
+
+src/playerName.i: src/playerName.cpp.i
+
+.PHONY : src/playerName.i
+
+# target to preprocess a source file
+src/playerName.cpp.i:
+	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/playerName.cpp.i
+.PHONY : src/playerName.cpp.i
+
+src/playerName.s: src/playerName.cpp.s
+
+.PHONY : src/playerName.s
+
+# target to generate assembly for a file
+src/playerName.cpp.s:
+	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/playerName.cpp.s
+.PHONY : src/playerName.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -282,6 +309,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/playerName.o"
+	@echo "... src/playerName.i"
+	@echo "... src/playerName.s"
 .PHONY : help
 
 

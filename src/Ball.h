@@ -4,7 +4,8 @@
 
 #include <Vec2.h>
 #include <SDL2/SDL.h>
-#include <collission.h>
+#include <auxiliary.h>
+#include <random>
 
 class Ball
 {
@@ -12,13 +13,13 @@ class Ball
         Ball(int windowWidth, int windowHeight,Vec2 startVelocity);
         void Draw(SDL_Renderer* renderer);
         void Update(float dt);
-        void CollideWithPaddle(Contact const& contact,float ballSpeed);
+        void CollideWithPaddle(Contact const& contact,float ballAcceleration);
         void CollideWithWall(Contact const& contact,float ballSpeed);
         Vec2 position;
         Vec2 velocity;
         SDL_Rect rect{};
-        const int ballWidth = 15;
-        const int ballHeight = 15;
+        const int ballWidth = 10;
+        const int ballHeight = 10;
     private:
         int windowWidthInternal;
         int windowHeightInternal;

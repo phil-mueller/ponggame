@@ -34,8 +34,6 @@ Note: the game has been developed and tested under Linux only. Additionally, det
 * The audio output does not work inside the Udacity workspace (not fixable currently)
 * Some variables and formatting are not strict
 * Further feature ideas to add
-  * Start/Exit Menu
+  * Start/Exit Menu with GUI
   * Highscore with datafile
-  * FPS Counter (similar to Snake game)
-  * 1 vs PC mode with autonomous enemy
-  * Increase the difficulty over time
+  * Increase randomness to make game more exciting

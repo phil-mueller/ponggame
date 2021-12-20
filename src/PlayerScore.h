@@ -14,6 +14,7 @@ class PlayerScore
         ~PlayerScore();
         void Draw(SDL_Renderer* renderer);
         void SetScore(SDL_Renderer* renderer, TTF_Font* font, int score);
+    private:
         SDL_Surface* surface{};
         SDL_Texture* texture{};
         SDL_Rect rect{};

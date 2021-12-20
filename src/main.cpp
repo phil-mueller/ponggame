@@ -1,29 +1,23 @@
 #include <iostream>
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_audio.h>
+// #include <SDL2/SDL_audio.h>
 #include <Vec2.h>
 #include <Ball.h>
 #include <Paddle.h>
 #include <PlayerScore.h>
+#include <playerName.h>
 #include <string>
 #include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_mixer.h>
+// #include <SDL2/SDL_mixer.h>
 #include <chrono>
+#include <thread>
+#include <sstream>
 
 // Declare some variables
-const int windowWidth = 1280;
-const int windowHeight = 720;
+const int windowWidth = 1600;
+const int windowHeight = 900;
 const float paddleSpeed = 1.0;
 const float ballSpeed = 0.75;
-
-// Enum to indicate movement for paddles
-enum Buttons
-{
-  PaddleOneUp = 0,
-  PaddleOneDown,
-  PaddleTwoUp,
-  PaddleTwoDown,
-};
 
 // Function to detect collision of ball with paddles
 Contact CheckPaddleCollision(Ball const& ball, Paddle const& paddle)
@@ -114,23 +108,52 @@ Contact CheckWallCollision(Ball const& ball)
 }
 
 int main() {
+  std::string playerOneName, playerTwoName, difficulty;
+  std::cout << R"( __          __  _                            _        
+ \ \        / / | |                          | |       
+  \ \  /\  / /__| | ___ ___  _ __ ___   ___  | |_ ___  
+   \ \/  \/ / _ \ |/ __/ _ \| '_ ` _ \ / _ \ | __/ _ \ 
+    \  /\  /  __/ | (_| (_) | | | | | |  __/ | || (_) |
+  ___\/  \/ \___|_|\___\___/|_|_|_| |_|\___|  \__\___/ 
+ |  __ \                   / ____|                     
+ | |__) |__  _ __   __ _  | |  __  __ _ _ __ ___   ___ 
+ |  ___/ _ \| '_ \ / _` | | | |_ |/ _` | '_ ` _ \ / _ \
+ | |  | (_) | | | | (_| | | |__| | (_| | | | | | |  __/
+ |_|   \___/|_| |_|\__, |  \_____|\__,_|_| |_| |_|\___|
+                    __/ |                              
+                   |___/                               
+  )" << std::endl;
+  std::cout << "Press Enter to continue" << std::endl;
+  std::cin.get();
+  std::cout << "Please enter player one name: " << std::endl;
+  std::cin >> playerOneName;
+  std::cout << "Please enter player two name (or input \"Computer\" for single-player mode): " << std::endl;
+  std::cin >> playerTwoName;
+  std::cout << "Please specify difficulty level. " << "Available: \"easy\" (slow), \"medium\" (fast) and \"hard\" (fast & randomness):" << std::endl;
+  std::cin >> difficulty;
+  std::cout << "Starting the game: " << playerOneName << " vs. " << playerTwoName << std::endl;
+
   // Initialize SDL libraries
-  SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
+  SDL_Init(SDL_INIT_VIDEO); // | SDL_INIT_AUDIO);
   TTF_Init();
   SDL_Window* window = SDL_CreateWindow("Pong",0,0,windowWidth,windowHeight,SDL_WINDOW_SHOWN);
   SDL_Renderer* renderer = SDL_CreateRenderer(window,-1,0);
   TTF_Font* scoreFont = TTF_OpenFont("DejaVuSansMono.ttf",40);
-  Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
+  // Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
 
   // Open audio files for game
-  Mix_Chunk* wallHitSound = Mix_LoadWAV("WallHit.wav");
-  Mix_Chunk* paddleHitSound = Mix_LoadWAV("PaddleHit.wav");
+  // Mix_Chunk* wallHitSound = Mix_LoadWAV("WallHit.wav");
+  // Mix_Chunk* paddleHitSound = Mix_LoadWAV("PaddleHit.wav");
 
   // Initialize player scores
   PlayerScore playerOneScore(Vec2(windowWidth/4,20),renderer,scoreFont);
   PlayerScore playerTwoScore(Vec2(3*windowWidth/4,20),renderer,scoreFont);
   int OneScore = 0;
   int TwoScore = 0;
+
+  // Initialize player names
+  PlayerName nameOne(Vec2(windowWidth/4.5,windowHeight-50),renderer,scoreFont,playerOneName);
+  PlayerName nameTwo(Vec2(2.75*windowWidth/4,windowHeight-50),renderer,scoreFont,playerTwoName);
 
   // Add ball object
   Ball ball(windowWidth,windowHeight,Vec2(ballSpeed,0.0));
@@ -142,12 +165,32 @@ int main() {
   // Game status variables
   bool running = true;
   bool buttons[4] = {};
+  bool enemy = false;
+  if (playerTwoName == "Computer")
+  {
+    enemy = true;
+  }
+  bool sleep = false;
 
-  // Initialize time increment for game loop timing
+  // Paddle speeds can later be adjusted for difficulty
+  float paddleOneSpeed = 1.0*paddleSpeed;
+  float paddleTwoSpeed = 1.0*paddleSpeed;
+  if (enemy == true)
+  {
+    paddleTwoSpeed = 0.6*paddleSpeed;
+  }  
+
+  // Ball acceleration can be adjusted for difficulty
+  float ballAcceleration = 1.04;
+
+  // Initialize time variables for game loop timing
+  float targetDuration = 1000/60;
   float dt = 0.0f;
+  int frameCount = 0;
+  auto titleTime = std::chrono::high_resolution_clock::now();
 
   // Starting main game loop
-  std::cout << "Starting Pong Game" << std::endl;
+
   while(running)
   {
 
@@ -175,11 +218,11 @@ int main() {
         {
           buttons[Buttons::PaddleOneDown] = true;
         }
-        else if(event.key.keysym.sym==SDLK_UP)
+        else if(enemy==false && event.key.keysym.sym==SDLK_UP)
         {
           buttons[Buttons::PaddleTwoUp] = true;
         }
-        else if(event.key.keysym.sym==SDLK_DOWN)
+        else if(enemy==false && event.key.keysym.sym==SDLK_DOWN)
         {
           buttons[Buttons::PaddleTwoDown] = true;
         }
@@ -194,13 +237,30 @@ int main() {
         {
           buttons[Buttons::PaddleOneDown] = false;
         }
-        else if(event.key.keysym.sym==SDLK_UP)
+        else if(enemy==false && event.key.keysym.sym==SDLK_UP)
         {
           buttons[Buttons::PaddleTwoUp] = false;
         }
-        else if(event.key.keysym.sym==SDLK_DOWN)
+        else if(enemy==false && event.key.keysym.sym==SDLK_DOWN)
         {
           buttons[Buttons::PaddleTwoDown] =false;
+        }
+      }
+    }
+
+    if (enemy == true)
+    {
+      buttons[Buttons::PaddleTwoDown] = false;
+      buttons[Buttons::PaddleTwoUp] = false;
+      if (ball.velocity.x > 0 && (ball.position.x > 0.5*windowWidth))
+      {
+        if ((ball.position.y+ball.ballHeight/2.0) > (paddleTwo.position.y+paddleTwo.paddleHeight/2.0))
+        {
+         buttons[Buttons::PaddleTwoDown] = true;
+        }
+        else if ((ball.position.y+ball.ballHeight/2.0) < (paddleTwo.position.y + paddleTwo.paddleHeight/2.0))
+        {
+          buttons[Buttons::PaddleTwoUp] = true;
         }
       }
     }
@@ -208,11 +268,11 @@ int main() {
     // Update paddles according to input
     if(buttons[Buttons::PaddleOneUp])
     {
-      paddleOne.velocity.y = -paddleSpeed;
+      paddleOne.velocity.y = -paddleOneSpeed;
     }
     else if(buttons[Buttons::PaddleOneDown])
     {
-      paddleOne.velocity.y = paddleSpeed;
+      paddleOne.velocity.y = paddleOneSpeed;
     }
     else
     {
@@ -220,11 +280,11 @@ int main() {
     }
     if(buttons[Buttons::PaddleTwoUp])
     {
-      paddleTwo.velocity.y = -paddleSpeed;
+      paddleTwo.velocity.y = -paddleTwoSpeed;
     }
     else if(buttons[Buttons::PaddleTwoDown])
     {
-      paddleTwo.velocity.y = paddleSpeed;
+      paddleTwo.velocity.y = paddleTwoSpeed;
     }
     else
     {
@@ -234,20 +294,27 @@ int main() {
     paddleTwo.Update(dt);  
 
     // Update ball
-    ball.Update(dt);  
+    ball.Update(dt); 
+
+    // Check for sleep after point has been made
+    if (sleep == true)
+    {
+      std::this_thread::sleep_for(std::chrono::milliseconds(400));
+      sleep = false;
+    } 
 
     // Check for collision
     if (Contact contact = CheckPaddleCollision(ball, paddleOne);
         contact.type != CollisionType::None)
     {
-      ball.CollideWithPaddle(contact, ballSpeed);
-      Mix_PlayChannel(-1, paddleHitSound, 0);
+      ball.CollideWithPaddle(contact, ballAcceleration);
+      // Mix_PlayChannel(-1, paddleHitSound, 0);
     }
     else if (contact = CheckPaddleCollision(ball, paddleTwo);
           contact.type != CollisionType::None)
     {
-      ball.CollideWithPaddle(contact, ballSpeed);
-      Mix_PlayChannel(-1, paddleHitSound, 0);
+      ball.CollideWithPaddle(contact, ballAcceleration);
+      // Mix_PlayChannel(-1, paddleHitSound, 0);
     }
     else if (contact = CheckWallCollision(ball);
           contact.type != CollisionType::None)
@@ -257,17 +324,38 @@ int main() {
       {
         ++TwoScore;
         playerTwoScore.SetScore(renderer,scoreFont,TwoScore);
+        paddleOne.position.y = (windowHeight/2.0)-(paddleOne.paddleHeight/2.0);
+        paddleTwo.position.y = (windowHeight/2.0)-(paddleTwo.paddleHeight/2.0);
+        sleep = true;
       }
       else if (contact.type == CollisionType::Right)
       {
         ++OneScore;
         playerOneScore.SetScore(renderer,scoreFont,OneScore);
+        paddleOne.position.y = (windowHeight/2.0)-(paddleOne.paddleHeight/2.0);
+        paddleTwo.position.y = (windowHeight/2.0)-(paddleTwo.paddleHeight/2.0);
+        sleep = true;
       }
       else
       {
-        Mix_PlayChannel(-1, wallHitSound, 0);
+        // Mix_PlayChannel(-1, wallHitSound, 0);
       }
-      
+    }
+
+    if (OneScore >= 10 || TwoScore >= 10)
+    {
+      if ((OneScore-TwoScore)*(OneScore-TwoScore) >= 4)
+      {
+        running = false;
+        if (OneScore > TwoScore)
+        {
+          std::cout << playerOneName << " has won the game" << std::endl;
+        }
+        else
+        {
+          std::cout << playerTwoName << " has won the game" << std::endl;
+        }
+      }
     }
     // Create black window
     SDL_SetRenderDrawColor(renderer,0x0,0x0,0x0,0xFF);
@@ -284,7 +372,9 @@ int main() {
     }
 
     // Draw ball and paddles
+    SDL_SetRenderDrawColor(renderer,225,225,0,255);
     ball.Draw(renderer);
+    SDL_SetRenderDrawColor(renderer,0xFF,0xFF,0xFF,0xFF);
     paddleOne.Draw(renderer);
     paddleTwo.Draw(renderer);
 
@@ -292,21 +382,38 @@ int main() {
     playerOneScore.Draw(renderer);
     playerTwoScore.Draw(renderer);
 
+    // Display the names
+    nameOne.Draw(renderer);
+    nameTwo.Draw(renderer);
+
     // Present new window
     SDL_RenderPresent(renderer);
 
-    // Calculate update time
+    // Calculate update time and delay execution
     auto stopTime = std::chrono::high_resolution_clock::now();
     dt = std::chrono::duration<float, std::chrono::milliseconds::period>(stopTime-startTime).count();
+    if (dt < targetDuration)
+    {
+      SDL_Delay(targetDuration - dt);
+    }
+    frameCount++;
+    if (std::chrono::duration<float,std::chrono::milliseconds::period>(stopTime-titleTime).count() >= 1000)
+    {
+      std::stringstream ss;
+      ss << "Pong Game running at " << frameCount << " FPS";
+      SDL_SetWindowTitle(window,ss.str().c_str());
+      titleTime = stopTime;
+      frameCount = 0;
+    }
   }
 
   // Cleanup
-  Mix_FreeChunk(wallHitSound);
-  Mix_FreeChunk(paddleHitSound);
+  // Mix_FreeChunk(wallHitSound);
+  // Mix_FreeChunk(paddleHitSound);
   SDL_DestroyRenderer(renderer);
   SDL_DestroyWindow(window);
   TTF_CloseFont(scoreFont);
-  Mix_Quit();
+  // Mix_Quit();
   TTF_Quit();
   SDL_Quit();
   std::cout << "Game exited successfully" << std::endl;

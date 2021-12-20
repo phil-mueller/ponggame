@@ -24,17 +24,17 @@ void Ball::Update(float dt)
     position += velocity*dt;
 }
 
-void Ball::CollideWithPaddle(Contact const& contact, float ballSpeed)
+void Ball::CollideWithPaddle(Contact const& contact, float ballAcceleration)
 {
     position.x += contact.penetration;
-    velocity.x = -velocity.x;
+    velocity.x = -velocity.x*ballAcceleration;
     if (contact.type == CollisionType::Top)
     {
-        velocity.y = -0.75*ballSpeed;
+        velocity.y = -0.75*velocity.x;
     }
     else if (contact.type == CollisionType::Bottom)
     {
-        velocity.y = 0.75*ballSpeed;
+        velocity.y = 0.75*velocity.x;
     }
 }
 
@@ -48,16 +48,22 @@ void Ball::CollideWithWall(Contact const& contact, float ballSpeed)
 		}
 		else if (contact.type == CollisionType::Left)
 		{
+            std::random_device rd;
+            std::default_random_engine eng(rd());
+            std::uniform_real_distribution<> distr(-0.4,0.4);
 			position.x = windowWidthInternal / 2.0f;
 			position.y = windowHeightInternal / 2.0f;
 			velocity.x = ballSpeed;
-			velocity.y = 0.75f * ballSpeed;
+			velocity.y = distr(eng) * ballSpeed;
 		}
 		else if (contact.type == CollisionType::Right)
 		{
+            std::random_device rd;
+            std::default_random_engine eng(rd());
+            std::uniform_real_distribution<> distr(-0.4,0.4);
 			position.x = windowWidthInternal / 2.0f;
 			position.y = windowHeightInternal / 2.0f;
 			velocity.x = -ballSpeed;
-			velocity.y = 0.75f * ballSpeed;
+			velocity.y = distr(eng) * ballSpeed;
 		}
 }

@@ -1,5 +1,5 @@
-#ifndef collision_h
-#define collusion_h
+#ifndef auxiliary_h
+#define auxiliary_h
 
 // Enum for collision physics
 enum class CollisionType
@@ -17,6 +17,15 @@ struct Contact
 {
   CollisionType type;
   float penetration;
+};
+
+// Enum to indicate movement for paddles
+enum Buttons
+{
+  PaddleOneUp = 0,
+  PaddleOneDown,
+  PaddleTwoUp,
+  PaddleTwoDown,
 };
 
 #endif

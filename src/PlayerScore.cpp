@@ -2,7 +2,7 @@
 
 PlayerScore::PlayerScore(Vec2 position, SDL_Renderer* renderer, TTF_Font* font)
 {
-    surface = TTF_RenderText_Solid(font,"0",{0xFF,0xFF,0xFF,0xFF});
+    surface = TTF_RenderText_Solid(font,"0",{128,128,128,255});
     texture = SDL_CreateTextureFromSurface(renderer,surface);
 
     int width, height;
@@ -30,7 +30,7 @@ void PlayerScore::SetScore(SDL_Renderer* renderer, TTF_Font* font, int score)
 {
     SDL_FreeSurface(surface);
 	SDL_DestroyTexture(texture);
-	surface = TTF_RenderText_Solid(font, std::to_string(score).c_str(), {0xFF, 0xFF, 0xFF, 0xFF});
+	surface = TTF_RenderText_Solid(font, std::to_string(score).c_str(), {128, 128, 128, 255});
 	texture = SDL_CreateTextureFromSurface(renderer, surface);
 	int width, height;
 	SDL_QueryTexture(texture, nullptr, nullptr, &width, &height);
