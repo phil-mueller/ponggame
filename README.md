@@ -31,9 +31,9 @@ Note: the game has been developed and tested under Linux only. Additionally, det
 
 
 ## Known issues and to-dos
-* The audio output does not work inside the Udacity workspace (not fixable currently)
-* Some variables and formatting are not strict
+* The audio output does not work inside the Udacity workspace (not fixable currently), therefore all respective audio commands are commented out. If you are running the
+  game locally and which to include audio output, please uncomment these lines
 * Further feature ideas to add
-  * Start/Exit Menu with GUI
-  * Highscore with datafile
-  * Increase randomness to make game more exciting
+  * Add a Start/Exit Menu with GUI
+  * Read and save last game results from datafile
+  * Make the artificial computer enemy smarter / less predictable
