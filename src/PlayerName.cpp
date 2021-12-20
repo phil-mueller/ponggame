@@ -1,4 +1,4 @@
-#include <playerName.h>
+#include <PlayerName.h>
 
 PlayerName::PlayerName(Vec2 position, SDL_Renderer* renderer, TTF_Font* font, std::string name)
 {

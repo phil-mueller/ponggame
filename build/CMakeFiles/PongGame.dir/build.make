@@ -122,18 +122,31 @@ CMakeFiles/PongGame.dir/src/PlayerScore.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PongGame.dir/src/PlayerScore.cpp.s"
 	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workspace/CppND-Capstone-Pong-Game/src/PlayerScore.cpp -o CMakeFiles/PongGame.dir/src/PlayerScore.cpp.s
 
-CMakeFiles/PongGame.dir/src/playerName.cpp.o: CMakeFiles/PongGame.dir/flags.make
-CMakeFiles/PongGame.dir/src/playerName.cpp.o: ../src/playerName.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/workspace/CppND-Capstone-Pong-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/PongGame.dir/src/playerName.cpp.o"
-	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PongGame.dir/src/playerName.cpp.o -c /home/workspace/CppND-Capstone-Pong-Game/src/playerName.cpp
+CMakeFiles/PongGame.dir/src/PlayerName.cpp.o: CMakeFiles/PongGame.dir/flags.make
+CMakeFiles/PongGame.dir/src/PlayerName.cpp.o: ../src/PlayerName.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/workspace/CppND-Capstone-Pong-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/PongGame.dir/src/PlayerName.cpp.o"
+	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PongGame.dir/src/PlayerName.cpp.o -c /home/workspace/CppND-Capstone-Pong-Game/src/PlayerName.cpp
 
-CMakeFiles/PongGame.dir/src/playerName.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PongGame.dir/src/playerName.cpp.i"
-	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/workspace/CppND-Capstone-Pong-Game/src/playerName.cpp > CMakeFiles/PongGame.dir/src/playerName.cpp.i
+CMakeFiles/PongGame.dir/src/PlayerName.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PongGame.dir/src/PlayerName.cpp.i"
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/workspace/CppND-Capstone-Pong-Game/src/PlayerName.cpp > CMakeFiles/PongGame.dir/src/PlayerName.cpp.i
 
-CMakeFiles/PongGame.dir/src/playerName.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PongGame.dir/src/playerName.cpp.s"
-	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workspace/CppND-Capstone-Pong-Game/src/playerName.cpp -o CMakeFiles/PongGame.dir/src/playerName.cpp.s
+CMakeFiles/PongGame.dir/src/PlayerName.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PongGame.dir/src/PlayerName.cpp.s"
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workspace/CppND-Capstone-Pong-Game/src/PlayerName.cpp -o CMakeFiles/PongGame.dir/src/PlayerName.cpp.s
+
+CMakeFiles/PongGame.dir/src/Game.cpp.o: CMakeFiles/PongGame.dir/flags.make
+CMakeFiles/PongGame.dir/src/Game.cpp.o: ../src/Game.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/workspace/CppND-Capstone-Pong-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/PongGame.dir/src/Game.cpp.o"
+	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PongGame.dir/src/Game.cpp.o -c /home/workspace/CppND-Capstone-Pong-Game/src/Game.cpp
+
+CMakeFiles/PongGame.dir/src/Game.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PongGame.dir/src/Game.cpp.i"
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/workspace/CppND-Capstone-Pong-Game/src/Game.cpp > CMakeFiles/PongGame.dir/src/Game.cpp.i
+
+CMakeFiles/PongGame.dir/src/Game.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PongGame.dir/src/Game.cpp.s"
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workspace/CppND-Capstone-Pong-Game/src/Game.cpp -o CMakeFiles/PongGame.dir/src/Game.cpp.s
 
 # Object files for target PongGame
 PongGame_OBJECTS = \
@@ -142,7 +155,8 @@ PongGame_OBJECTS = \
 "CMakeFiles/PongGame.dir/src/Ball.cpp.o" \
 "CMakeFiles/PongGame.dir/src/Paddle.cpp.o" \
 "CMakeFiles/PongGame.dir/src/PlayerScore.cpp.o" \
-"CMakeFiles/PongGame.dir/src/playerName.cpp.o"
+"CMakeFiles/PongGame.dir/src/PlayerName.cpp.o" \
+"CMakeFiles/PongGame.dir/src/Game.cpp.o"
 
 # External object files for target PongGame
 PongGame_EXTERNAL_OBJECTS =
@@ -152,13 +166,14 @@ PongGame: CMakeFiles/PongGame.dir/src/Vec2.cpp.o
 PongGame: CMakeFiles/PongGame.dir/src/Ball.cpp.o
 PongGame: CMakeFiles/PongGame.dir/src/Paddle.cpp.o
 PongGame: CMakeFiles/PongGame.dir/src/PlayerScore.cpp.o
-PongGame: CMakeFiles/PongGame.dir/src/playerName.cpp.o
+PongGame: CMakeFiles/PongGame.dir/src/PlayerName.cpp.o
+PongGame: CMakeFiles/PongGame.dir/src/Game.cpp.o
 PongGame: CMakeFiles/PongGame.dir/build.make
 PongGame: /usr/lib/x86_64-linux-gnu/libSDL2_ttf.so
 PongGame: /usr/lib/x86_64-linux-gnu/libSDL2_ttf.so
 PongGame: /usr/lib/x86_64-linux-gnu/libSDL2_mixer.so
 PongGame: CMakeFiles/PongGame.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/workspace/CppND-Capstone-Pong-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable PongGame"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/workspace/CppND-Capstone-Pong-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable PongGame"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/PongGame.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

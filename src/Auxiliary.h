@@ -1,5 +1,5 @@
-#ifndef auxiliary_h
-#define auxiliary_h
+#ifndef AUXILIARY_H
+#define AUXILIARY_H
 
 // Enum for collision physics
 enum class CollisionType

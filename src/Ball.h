@@ -4,8 +4,9 @@
 
 #include <Vec2.h>
 #include <SDL2/SDL.h>
-#include <auxiliary.h>
+#include <Auxiliary.h>
 #include <random>
+#include <string>
 
 class Ball
 {
@@ -14,7 +15,7 @@ class Ball
         void Draw(SDL_Renderer* renderer);
         void Update(float dt);
         void CollideWithPaddle(Contact const& contact,float ballAcceleration);
-        void CollideWithWall(Contact const& contact,float ballSpeed);
+        void CollideWithWall(Contact const& contact,float ballSpeed, std::string diff);
         Vec2 position;
         Vec2 velocity;
         SDL_Rect rect{};

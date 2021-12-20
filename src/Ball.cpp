@@ -38,13 +38,20 @@ void Ball::CollideWithPaddle(Contact const& contact, float ballAcceleration)
     }
 }
 
-void Ball::CollideWithWall(Contact const& contact, float ballSpeed)
+void Ball::CollideWithWall(Contact const& contact, float ballSpeed, std::string diff)
 {
     if ((contact.type == CollisionType::Top)
 		    || (contact.type == CollisionType::Bottom))
 		{
 			position.y += contact.penetration;
 			velocity.y = -velocity.y;
+            if (diff == "hard")
+            {
+                std::random_device rd;
+                std::default_random_engine eng(rd());
+                std::normal_distribution<> distr(0,0.3);
+                velocity.y += distr(eng);
+            }
 		}
 		else if (contact.type == CollisionType::Left)
 		{

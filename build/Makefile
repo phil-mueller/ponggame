@@ -150,6 +150,33 @@ src/Ball.cpp.s:
 	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/Ball.cpp.s
 .PHONY : src/Ball.cpp.s
 
+src/Game.o: src/Game.cpp.o
+
+.PHONY : src/Game.o
+
+# target to build an object file
+src/Game.cpp.o:
+	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/Game.cpp.o
+.PHONY : src/Game.cpp.o
+
+src/Game.i: src/Game.cpp.i
+
+.PHONY : src/Game.i
+
+# target to preprocess a source file
+src/Game.cpp.i:
+	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/Game.cpp.i
+.PHONY : src/Game.cpp.i
+
+src/Game.s: src/Game.cpp.s
+
+.PHONY : src/Game.s
+
+# target to generate assembly for a file
+src/Game.cpp.s:
+	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/Game.cpp.s
+.PHONY : src/Game.cpp.s
+
 src/Paddle.o: src/Paddle.cpp.o
 
 .PHONY : src/Paddle.o
@@ -176,6 +203,33 @@ src/Paddle.s: src/Paddle.cpp.s
 src/Paddle.cpp.s:
 	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/Paddle.cpp.s
 .PHONY : src/Paddle.cpp.s
+
+src/PlayerName.o: src/PlayerName.cpp.o
+
+.PHONY : src/PlayerName.o
+
+# target to build an object file
+src/PlayerName.cpp.o:
+	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/PlayerName.cpp.o
+.PHONY : src/PlayerName.cpp.o
+
+src/PlayerName.i: src/PlayerName.cpp.i
+
+.PHONY : src/PlayerName.i
+
+# target to preprocess a source file
+src/PlayerName.cpp.i:
+	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/PlayerName.cpp.i
+.PHONY : src/PlayerName.cpp.i
+
+src/PlayerName.s: src/PlayerName.cpp.s
+
+.PHONY : src/PlayerName.s
+
+# target to generate assembly for a file
+src/PlayerName.cpp.s:
+	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/PlayerName.cpp.s
+.PHONY : src/PlayerName.cpp.s
 
 src/PlayerScore.o: src/PlayerScore.cpp.o
 
@@ -258,33 +312,6 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/playerName.o: src/playerName.cpp.o
-
-.PHONY : src/playerName.o
-
-# target to build an object file
-src/playerName.cpp.o:
-	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/playerName.cpp.o
-.PHONY : src/playerName.cpp.o
-
-src/playerName.i: src/playerName.cpp.i
-
-.PHONY : src/playerName.i
-
-# target to preprocess a source file
-src/playerName.cpp.i:
-	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/playerName.cpp.i
-.PHONY : src/playerName.cpp.i
-
-src/playerName.s: src/playerName.cpp.s
-
-.PHONY : src/playerName.s
-
-# target to generate assembly for a file
-src/playerName.cpp.s:
-	$(MAKE) -f CMakeFiles/PongGame.dir/build.make CMakeFiles/PongGame.dir/src/playerName.cpp.s
-.PHONY : src/playerName.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -297,9 +324,15 @@ help:
 	@echo "... src/Ball.o"
 	@echo "... src/Ball.i"
 	@echo "... src/Ball.s"
+	@echo "... src/Game.o"
+	@echo "... src/Game.i"
+	@echo "... src/Game.s"
 	@echo "... src/Paddle.o"
 	@echo "... src/Paddle.i"
 	@echo "... src/Paddle.s"
+	@echo "... src/PlayerName.o"
+	@echo "... src/PlayerName.i"
+	@echo "... src/PlayerName.s"
 	@echo "... src/PlayerScore.o"
 	@echo "... src/PlayerScore.i"
 	@echo "... src/PlayerScore.s"
@@ -309,9 +342,6 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/playerName.o"
-	@echo "... src/playerName.i"
-	@echo "... src/playerName.s"
 .PHONY : help
 
 
