@@ -1,5 +1,12 @@
 # CPPND: Capstone Pong Game
-This repo contains the capstone projec for the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). Based on the starting repo of the [Snake game](https://github.com/udacity/CppND-Capstone-Snake-Game), a clone of the classic arcade game Pong has been developed. The basic structure is taken from this [Tutorial](https://github.com/udacity/CppND-Capstone-Snake-Game) of Austin Morlan. The original code has been extended with new features and restructured in an object-oriented manner.
+This repo contains the capstone projec for the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). Based on the starting repo of the [Snake game](https://github.com/udacity/CppND-Capstone-Snake-Game), a clone of the classic arcade game Pong has been developed. The basic structure is taken from this [Tutorial](https://github.com/udacity/CppND-Capstone-Snake-Game) of Austin Morlan. The original code has been enhanced by
+
+* Restructured the code into different header and cpp files
+* Added the Game class to hold the game loop
+* Added a FPS counter in the window title
+* Added the PlayerName and GameResult classes for additional features
+* Added reading/writing the last 3 games from a text-file
+* Added an computer enemy for single-player mode
 
 Note: the game has been developed and tested under Linux only. Additionally, detailed installation guides for the required libraries are only given for Linux operating systems. However, all libraries used are also available for Windows and MacOS.
 
@@ -31,9 +38,7 @@ Note: the game has been developed and tested under Linux only. Additionally, det
 
 
 ## Known issues and to-dos
-* The audio output does not work inside the Udacity workspace (not fixable currently), therefore all respective audio commands are commented out. If you are running the
-  game locally and which to include audio output, please uncomment these lines
+* The audio output does not work inside the Udacity workspace (not fixable currently), therefore all respective audio commands are commented out. If you are running the game locally and which to include audio output, please uncomment these lines
 * Further feature ideas to add
   * Add a Start/Exit Menu with GUI
-  * Read and save last game results from datafile
   * Make the artificial computer enemy smarter / less predictable
