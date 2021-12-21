@@ -31,6 +31,10 @@ int main() {
         seglist.push_back(segment);
       }
       n1 = seglist[0];
+      if (!n1.empty())
+      {
+        lastGamesFound = true;
+      }
       n2 = seglist[1];
       p1 = std::stoi(seglist[2]);
       p2 = std::stoi(seglist[3]);
@@ -41,7 +45,6 @@ int main() {
       results.push_back(result);
     }
     f.close();
-    lastGamesFound = true;
   }
   catch(const std::exception& e)
   {
