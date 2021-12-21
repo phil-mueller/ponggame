@@ -9,6 +9,7 @@ CMakeFiles/PongGame.dir/src/Ball.cpp.o: ../src/Ball.h
 CMakeFiles/PongGame.dir/src/Game.cpp.o: ../src/Auxiliary.h
 CMakeFiles/PongGame.dir/src/Game.cpp.o: ../src/Ball.h
 CMakeFiles/PongGame.dir/src/Game.cpp.o: ../src/Game.h
+CMakeFiles/PongGame.dir/src/Game.cpp.o: ../src/GameResult.h
 CMakeFiles/PongGame.dir/src/Game.cpp.o: ../src/Paddle.h
 CMakeFiles/PongGame.dir/src/Game.cpp.o: ../src/PlayerName.h
 CMakeFiles/PongGame.dir/src/Game.cpp.o: ../src/PlayerScore.h
@@ -33,6 +34,7 @@ CMakeFiles/PongGame.dir/src/Vec2.cpp.o: ../src/Vec2.h
 CMakeFiles/PongGame.dir/src/main.cpp.o: ../src/Auxiliary.h
 CMakeFiles/PongGame.dir/src/main.cpp.o: ../src/Ball.h
 CMakeFiles/PongGame.dir/src/main.cpp.o: ../src/Game.h
+CMakeFiles/PongGame.dir/src/main.cpp.o: ../src/GameResult.h
 CMakeFiles/PongGame.dir/src/main.cpp.o: ../src/Paddle.h
 CMakeFiles/PongGame.dir/src/main.cpp.o: ../src/PlayerName.h
 CMakeFiles/PongGame.dir/src/main.cpp.o: ../src/PlayerScore.h

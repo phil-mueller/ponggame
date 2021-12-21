@@ -8,11 +8,13 @@
 #include <Paddle.h>
 #include <PlayerScore.h>
 #include <PlayerName.h>
+#include <GameResult.h>
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <string>
 #include <SDL2/SDL_ttf.h>
 #include <chrono>
+#include <ctime>
 #include <thread>
 #include <sstream>
 // #include <SDL2/SDL_audio.h>
@@ -22,7 +24,7 @@ class Game
 {
     public:
         Game(int windowWidthInput, int windowHeightInput, std::string difficultyInput, std::string playerOneNameInput, std::string playerTwoNameInput);
-        void Run();
+        GameResult Run();
         Contact CheckPaddleCollision(Ball const& ball, Paddle const& paddle);
         Contact CheckWallCollision(Ball const& ball);
     private:

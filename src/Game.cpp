@@ -99,7 +99,7 @@ Contact Game::CheckWallCollision(Ball const& ball)
 	return contact;
 }
 
-void Game::Run()
+GameResult Game::Run()
 {
   std::cout << "Starting the game: " << playerOneName << " vs. " << playerTwoName << std::endl;
   // Initialize SDL libraries
@@ -407,4 +407,15 @@ void Game::Run()
   // Mix_Quit();
   TTF_Quit();
   SDL_Quit();
+
+  // Create return object with time-stamp
+  auto now = std::chrono::system_clock::now();
+  std::time_t now_c = std::chrono::system_clock::to_time_t(now);
+  struct tm *parts = std::localtime(&now_c);
+  int year = static_cast<int>(1900+parts->tm_year);
+  int month = static_cast<int>(1+parts->tm_mon);
+  int day = static_cast<int>(parts->tm_mday);  
+
+  GameResult game = GameResult(OneScore,TwoScore,playerOneName,playerTwoName,day,month,year);
+  return game;
 }

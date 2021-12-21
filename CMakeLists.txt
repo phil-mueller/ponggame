@@ -16,6 +16,6 @@ find_package(SDL2TTF REQUIRED)
 find_package(SDL2_mixer REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS} ${SDL2TTF_INCLUDE_DIRS} ${SDL2_Mixer_INCLUDE_DIRS} src)
 
-add_executable(PongGame src/main.cpp src/Vec2.cpp src/Ball.cpp src/Paddle.cpp src/PlayerScore.cpp src/Auxiliary.h src/PlayerName.cpp src/Game.cpp)
+add_executable(PongGame src/main.cpp src/Vec2.cpp src/Ball.cpp src/Paddle.cpp src/PlayerScore.cpp src/Auxiliary.h src/PlayerName.cpp src/Game.cpp src/GameResult.h)
 string(STRIP ${SDL2_LIBRARIES} SDL2_LIBRARIES)
 target_link_libraries(PongGame ${SDL2_LIBRARIES} ${SDL2TTF_LIBRARY} ${SDL2_MIXER_LIBRARY})

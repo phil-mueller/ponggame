@@ -33,6 +33,8 @@ PlayerScore.h
 -
 PlayerName.h
 -
+GameResult.h
+-
 iostream
 -
 SDL2/SDL.h
@@ -43,9 +45,17 @@ SDL2/SDL_ttf.h
 -
 chrono
 -
+ctime
+-
 thread
 -
 sstream
+-
+
+../src/GameResult.h
+string
+-
+chrono
 -
 
 ../src/Paddle.h
@@ -78,23 +88,13 @@ string
 
 ../src/Vec2.h
 
-/home/workspace/CppND-Capstone-Pong-Game/src/Ball.cpp
-Ball.h
-/home/workspace/CppND-Capstone-Pong-Game/src/Ball.h
-
-/home/workspace/CppND-Capstone-Pong-Game/src/Ball.h
-Vec2.h
--
-SDL2/SDL.h
--
-Auxiliary.h
--
-random
--
-string
--
-
-/home/workspace/CppND-Capstone-Pong-Game/src/Game.cpp
+/home/workspace/CppND-Capstone-Pong-Game/src/main.cpp
 Game.h
+-
+vector
+-
+algorithm
+-
+fstream
 -
 
