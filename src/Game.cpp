@@ -107,12 +107,12 @@ GameResult Game::Run()
   TTF_Init();
   SDL_Window* window = SDL_CreateWindow("Pong",0,0,windowWidth,windowHeight,SDL_WINDOW_SHOWN);
   SDL_Renderer* renderer = SDL_CreateRenderer(window,-1,0);
-  TTF_Font* scoreFont = TTF_OpenFont("DejaVuSansMono.ttf",40);
+  TTF_Font* scoreFont = TTF_OpenFont("../DejaVuSansMono.ttf",40);
   // Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
 
   // Open audio files for game
-  // Mix_Chunk* wallHitSound = Mix_LoadWAV("WallHit.wav");
-  // Mix_Chunk* paddleHitSound = Mix_LoadWAV("PaddleHit.wav");
+  // Mix_Chunk* wallHitSound = Mix_LoadWAV("../WallHit.wav");
+  // Mix_Chunk* paddleHitSound = Mix_LoadWAV("../PaddleHit.wav");
 
   // Initialize player scores
   PlayerScore playerOneScore(Vec2(windowWidth/4,20),renderer,scoreFont);
@@ -162,8 +162,11 @@ GameResult Game::Run()
     }
   }
 
-  // Add ball object
-  Ball ball(windowWidth,windowHeight,Vec2(ballSpeed,0.0));
+  // Add ball object with random initial y velocity
+  std::random_device rd;
+  std::default_random_engine eng(rd());
+  std::uniform_real_distribution<> distr(-0.2,0.2);
+  Ball ball(windowWidth,windowHeight,Vec2(ballSpeed,distr(eng)));
 
   // Add paddle objects
   Paddle paddleOne(windowWidth,windowHeight,Vec2(0.0f,0.0f),"left");
