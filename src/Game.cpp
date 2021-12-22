@@ -143,7 +143,7 @@ GameResult Game::Run()
   {
     paddleOneSpeed = 1.0;
     paddleTwoSpeed = 1.0;
-    ballSpeed = 0.75;
+    ballSpeed = 0.4;
     ballAcceleration = 1.02;
     if (enemy == true)
     {
@@ -152,13 +152,13 @@ GameResult Game::Run()
   }
   else if (difficulty == "medium" || difficulty == "hard")
   {
-    paddleOneSpeed = 1.2;
-    paddleTwoSpeed = 1.2;
-    ballSpeed = 0.8;
-    ballAcceleration = 1.05;
+    paddleOneSpeed = 1.0;
+    paddleTwoSpeed = 1.0;
+    ballSpeed = 0.5;
+    ballAcceleration = 1.04;
     if (enemy == true)
     {
-      paddleTwoSpeed = 1.1;
+      paddleTwoSpeed = 0.8;
     }
   }
 
@@ -285,11 +285,11 @@ GameResult Game::Run()
     {
       paddleTwo.velocity.y = 0.0;
     }
-    paddleOne.Update(dt);
-    paddleTwo.Update(dt);  
+    paddleOne.Update(std::max(dt,targetDuration));
+    paddleTwo.Update(std::max(dt,targetDuration));  
 
     // Update ball
-    ball.Update(dt); 
+    ball.Update(std::max(dt,targetDuration)); 
 
     // Check for sleep after point has been made
     if (sleep == true)
