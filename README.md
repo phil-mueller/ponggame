@@ -9,6 +9,8 @@ This repo contains the capstone project for the [Udacity C++ Nanodegree Program]
 * Adding reading/writing the last 3 games from a text-file
 * Adding an computer enemy for single-player mode
 
+<img src"ponggame.gif"/>
+
 Note: the game has been developed and tested under Linux only. Additionally, detailed installation guides for the required libraries are only given for Linux operating systems. However, all libraries used are also available for Windows and MacOS.
 
 ## Program structure
