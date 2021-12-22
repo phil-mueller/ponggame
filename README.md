@@ -69,7 +69,6 @@ The last three GameResult objects are kept inside a vector in main.cpp and writt
 1. Clone this repo.
 2. Make a build directory in the top level directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
-4. Copy the files `DejaVuSansMono.ttf`, `PaddleHit.wav` and `WallHit.wav` from the root directory into the `build` folder
 4. Run it: `./PongGame`.
 
 
